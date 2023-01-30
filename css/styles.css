@@ -1,0 +1,327 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-family: TenbyFive;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  height: 100%;
+  margin: 0px 0px;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 120px calc(100% - 120px);
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main_wrapper";
+  background-color: #e6e6e6;
+}
+.sidebar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  grid-area: sidebar;
+  background-color: #22d3ee;
+  color: white;
+  padding: 10px;
+  box-shadow: 1px 0px 5px 1px grey;
+}
+.fa-rocket,
+.maintitle {
+  font-size: 27px;
+  font-weight: bold;
+  display: inline;
+  margin-right: 10px;
+  user-select: none;
+}
+.option {
+  margin: 10px;
+}
+.option i {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+}
+.option p {
+  font-size: 20px;
+  margin-left: 30px;
+  display: inline;
+}
+.option:hover {
+  border-right: 5px solid white;
+  cursor: pointer;
+  width: 100%;
+}
+.option:hover * {
+  font-size: 25px;
+}
+.header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  grid-area: header;
+  background-color: white;
+  color: white;
+  padding: 10px;
+  box-shadow: 4px 2px 5px 1px grey;
+}
+.header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+form {
+  position: relative;
+  transition: all 1s;
+  width: 40px;
+  height: 40px;
+  background: #22d3ee;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid #22d3ee;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 1px grey;
+}
+input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 32.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-family: TenbyFive;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+  background-color: #22d3ee;
+  color: white;
+}
+.fa-search {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 32.5px;
+  height: 32.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  transition: all 1s;
+}
+form:hover,
+form:valid {
+  width: 25%;
+  cursor: pointer;
+}
+form:hover input,
+form:valid input {
+  display: block;
+}
+form:hover .fa-search,
+form:valid .fa-search {
+  background: #22d3ee;
+  color: white;
+}
+.user-text {
+  color: black;
+  font-size: 20px;
+  margin-right: 15px;
+}
+.user-box {
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: #22d3ee;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px 1px grey;
+}
+.user-box * {
+  margin: 0px auto;
+}
+.user-box:hover {
+  cursor: pointer;
+  color: #22d3ee;
+  background-color: #e6e6e6;
+}
+.btn-wrapper {
+  margin: 0px auto;
+}
+.btn {
+  margin: 0px 20px;
+  height: 40px;
+  width: 100px;
+  background-color: #22d3ee;
+  border-radius: 25px;
+  box-shadow: 2px 2px 2px 1px grey;
+}
+.btn * {
+  margin: 0px auto;
+}
+.btn:hover {
+  cursor: pointer;
+  color: #22d3ee;
+  background-color: #e6e6e6;
+}
+.main_wrapper {
+  grid-area: main_wrapper;
+  background-color: #b6dbe9;
+  display: grid;
+  grid-template-columns: max(80%, 50%) auto;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "posts announcements"
+    "posts trending";
+  padding: 20px;
+}
+.posts {
+  grid-area: posts;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 45%;
+  background-color: white;
+  border-radius: 3%;
+  border-left-width: 10px;
+  border-left-color: orange;
+  border-left-style: solid;
+  box-shadow: 2px 2px 2px 1px grey;
+  margin: auto 10px;
+}
+.card-text {
+  padding: 10px;
+  height: 75%;
+  align-items: center;
+  overflow: hidden;
+}
+.card-icons {
+  display: flex;
+  padding: 10px;
+  flex-direction: row-reverse;
+  height: 25%;
+}
+.card-icons * {
+  font-size: 24px;
+  margin-left: 15px;
+}
+.card-icons *:hover {
+  color: lightgray;
+  cursor: pointer;
+}
+.announcements {
+  grid-area: announcements;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  border-radius: 3%;
+  box-shadow: 2px 2px 2px 1px grey;
+  padding: 10px;
+  font-size: smaller;
+  overflow: hidden;
+}
+.p-title {
+  margin: 1px 2px;
+  font-weight: bold;
+}
+.p-text {
+  margin: 1px 2px;
+  font-weight: lighter;
+  color: gray;
+}
+hr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+  width: 100%;
+}
+.trending {
+  grid-area: trending;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tr-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 5px auto;
+}
+.tr-usr {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: #000000;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  margin-right: 15px;
+}
+.tr-usr * {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: white;
+}
+.tr-text {
+  width: calc(100% - 40px);
+}
+h2 {
+  font-family: TenbyFive;
+  user-select: none;
+  cursor: pointer;
+  width: 100%;
+  margin: 5px;
+}
+h3 {
+  font-family: TenbyFive;
+  user-select: none;
+  cursor: pointer;
+}
+.clear {
+  clear: both;
+}
+@font-face {
+  font-family: "TenbyFive";
+  src: url("../fonts/tenby-five-webfont.otf"),
+    url("../fonts/tenby-five-webfont.eot"),
+    url("../fonts/tenby-five-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/tenby-five-webfont.woff2") format("woff2"),
+    url("../fonts/tenby-five-webfont.woff") format("woff"),
+    url("../fonts/tenby-five-webfont.ttf") format("truetype"),
+    url("../fonts/tenby-five-webfont.svg#TenbyFive") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
