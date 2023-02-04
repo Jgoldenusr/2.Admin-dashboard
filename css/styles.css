@@ -10,9 +10,9 @@ html {
 }
 body {
   height: 100%;
-  margin: 0px 0px;
+  margin: 0px;
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: 240px auto;
   grid-template-rows: 120px calc(100% - 120px);
   grid-template-areas:
     "sidebar header"
@@ -27,7 +27,7 @@ body {
   grid-area: sidebar;
   background-color: #22d3ee;
   color: white;
-  padding: 10px;
+  padding: 1rem;
   box-shadow: 1px 0px 5px 1px grey;
 }
 .fa-rocket,
@@ -39,17 +39,14 @@ body {
   user-select: none;
 }
 .option {
-  margin: 10px;
+  margin: 1rem;
 }
 .option i {
   font-size: 20px;
-  height: 20px;
-  width: 20px;
-  display: inline-block;
 }
 .option p {
   font-size: 20px;
-  margin-left: 30px;
+  margin-left: 1rem;
   display: inline;
 }
 .option:hover {
@@ -68,7 +65,7 @@ body {
   grid-area: header;
   background-color: white;
   color: white;
-  padding: 10px;
+  padding: 1rem;
   box-shadow: 4px 2px 5px 1px grey;
 }
 .header div {
@@ -79,7 +76,7 @@ body {
 }
 form {
   position: relative;
-  transition: all 1s;
+  transition: 1s;
   width: 40px;
   height: 40px;
   background: #22d3ee;
@@ -176,46 +173,45 @@ form:valid .fa-search {
 }
 .main_wrapper {
   grid-area: main_wrapper;
-  background-color: #b6dbe9;
   display: grid;
-  grid-template-columns: max(80%, 50%) auto;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 8fr 2fr;
+  grid-template-rows: 5fr 5fr;
   grid-template-areas:
     "posts announcements"
     "posts trending";
-  padding: 20px;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding: 1rem;
+  background-color: #b6dbe9;
 }
 .posts {
   grid-area: posts;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 1rem;
+  row-gap: 1rem;
 }
 .card {
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: 45%;
-  background-color: white;
   border-radius: 3%;
-  border-left-width: 10px;
+  border-left-width: 1vw;
   border-left-color: orange;
   border-left-style: solid;
   box-shadow: 2px 2px 2px 1px grey;
-  margin: auto 10px;
+  background-color: white;
 }
 .card-text {
-  padding: 10px;
   height: 75%;
-  align-items: center;
+  padding: 0.8rem;
   overflow: hidden;
 }
 .card-icons {
   display: flex;
-  padding: 10px;
   flex-direction: row-reverse;
   height: 25%;
+  padding: 0.8rem;
 }
 .card-icons * {
   font-size: 24px;
@@ -227,22 +223,32 @@ form:valid .fa-search {
 }
 .announcements {
   grid-area: announcements;
+  position: sticky;
+  top: 0%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.trending {
+  grid-area: trending;
+  position: sticky;
+  top: calc(50% + 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
 }
 .box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 80%;
-  background-color: white;
+  height: 100%;
   border-radius: 3%;
   box-shadow: 2px 2px 2px 1px grey;
-  padding: 10px;
+  background-color: white;
+  padding: 0.5rem;
   font-size: smaller;
   overflow: hidden;
 }
@@ -260,13 +266,6 @@ hr {
   border-width: 1px;
   border-color: lightgray;
   width: 100%;
-}
-.trending {
-  grid-area: trending;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .tr-wrap {
   display: flex;
@@ -301,7 +300,7 @@ hr {
 h2 {
   font-family: TenbyFive;
   user-select: none;
-  cursor: pointer;
+  max-height: 28px;
   width: 100%;
   margin: 5px;
 }
