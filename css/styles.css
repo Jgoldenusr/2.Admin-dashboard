@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
-  height: 100%;
   font-family: TenbyFive;
+  height: 100vh;
 }
 *,
 *::before,
@@ -9,11 +9,11 @@ html {
   box-sizing: inherit;
 }
 body {
-  height: 100%;
   margin: 0px;
+  height: inherit;
   display: grid;
   grid-template-columns: 240px auto;
-  grid-template-rows: 120px calc(100% - 120px);
+  grid-template-rows: 120px auto;
   grid-template-areas:
     "sidebar header"
     "sidebar main_wrapper";
@@ -62,6 +62,7 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   grid-area: header;
   background-color: white;
   color: white;
@@ -136,7 +137,7 @@ form:valid .fa-search {
   font-size: 20px;
   margin-right: 15px;
 }
-.user-box {
+.icon-box {
   width: 40px;
   height: 40px;
   color: white;
@@ -144,13 +145,16 @@ form:valid .fa-search {
   border-radius: 50%;
   box-shadow: 2px 2px 2px 1px grey;
 }
-.user-box * {
+.icon-box * {
   margin: 0px auto;
 }
-.user-box:hover {
+.icon-box:hover {
   cursor: pointer;
   color: #22d3ee;
   background-color: #e6e6e6;
+}
+#bars {
+  display: none;
 }
 .btn-wrapper {
   margin: 0px auto;
@@ -223,8 +227,6 @@ form:valid .fa-search {
 }
 .announcements {
   grid-area: announcements;
-  position: sticky;
-  top: 0%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -232,8 +234,6 @@ form:valid .fa-search {
 }
 .trending {
   grid-area: trending;
-  position: sticky;
-  top: calc(50% + 1rem);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -243,7 +243,6 @@ form:valid .fa-search {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100%;
   border-radius: 3%;
   box-shadow: 2px 2px 2px 1px grey;
@@ -279,12 +278,12 @@ hr {
   width: 40px;
   height: 40px;
   color: white;
-  background-color: #000000;
+  background-color: #22d3ee;
   border-radius: 50%;
-  border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: #22d3ee;
   margin-right: 15px;
+  box-shadow: 2px 2px 2px 1px grey;
 }
 .tr-usr * {
   position: relative;
@@ -292,7 +291,13 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
-  color: white;
+  color: inherit;
+}
+.tr-usr:hover {
+  cursor: pointer;
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  color: #22d3ee;
 }
 .tr-text {
   width: calc(100% - 40px);
@@ -311,6 +316,40 @@ h3 {
 }
 .clear {
   clear: both;
+}
+@media only screen and (max-width: 600px) {
+  html {
+    height: max-content;
+  }
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: 120px auto;
+    grid-template-areas:
+      "header"
+      "main_wrapper";
+  }
+  .sidebar {
+    position: absolute;
+    width: 280px;
+    transition: transform 350ms ease-in-out;
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  .toggledSidebar {
+    transform: translateX(0);
+    box-shadow: 2px 2px 2px 1px grey;
+  }
+  #bars {
+    display: inherit;
+  }
+  .main_wrapper {
+    grid-template-columns: auto;
+    grid-template-rows: 5fr auto auto;
+    grid-template-areas:
+      "posts"
+      "trending"
+      "announcements";
+  }
 }
 @font-face {
   font-family: "TenbyFive";
