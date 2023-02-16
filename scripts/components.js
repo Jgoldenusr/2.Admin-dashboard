@@ -2,18 +2,16 @@ const sidebarBtn = document.querySelector("#bars");
 const sidebar = document.querySelector(".sidebar");
 
 function toggleSidebar() {
+  const fullBodySize = document.body.getBoundingClientRect();
+  sidebar.style.minHeight = fullBodySize.height + "px";
   sidebar.classList.toggle("toggledSidebar");
-  const size = document.body.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  if (windowHeight <= 600) {
-    sidebar.style.minHeight = size.height + "px";
-  } else {
-    sidebar.style = "";
-  }
+}
+function restartSidebar() {
+  const fullBodySize = document.body.getBoundingClientRect();
+  sidebar.style.minHeight = fullBodySize.height + "px";
+  sidebar.classList.remove("toggledSidebar");
 }
 
 sidebarBtn.addEventListener("click", toggleSidebar);
 
-window.addEventListener("resize", () => {
-  toggleSidebar();
-});
+window.addEventListener("resize", restartSidebar);

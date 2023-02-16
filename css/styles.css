@@ -214,6 +214,7 @@ form:valid .fa-search {
 .card-icons {
   display: flex;
   flex-direction: row-reverse;
+  align-items: flex-end;
   height: 25%;
   padding: 0.8rem;
 }
@@ -301,6 +302,7 @@ hr {
 }
 .tr-text {
   width: calc(100% - 40px);
+  text-align: center;
 }
 h2 {
   font-family: TenbyFive;
