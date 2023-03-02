@@ -6,6 +6,8 @@ The page was meant to showcase the flexbox, grid and CSS styling skills learned 
 
 The page is fully responsive and was built using CSS for styling, HTML for structure and a little bit of Javascript for some features.
 
+You can test the demo [here.](https://jgoldenusr.github.io/2.Admin-dashboard/)
+
 ## Resources
 
 [Font icons](https://fontawesome.com) (fontawesome)
