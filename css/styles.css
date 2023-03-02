@@ -341,6 +341,15 @@ h3 {
     transform: translateX(0);
     box-shadow: 2px 2px 2px 1px grey;
   }
+  .btn-wrapper {
+    width: 100%;
+  }
+  .btn {
+    width: 30%;
+  }
+  .user-text {
+    font-size: 16px;
+  }
   #bars {
     display: inherit;
   }
